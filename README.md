@@ -1,4 +1,4 @@
-[]()
+[![Coverage Status](https://coveralls.io/repos/github/andela-aonifade/invertedindex/badge.svg)](https://coveralls.io/github/andela-aonifade/invertedindex)
 []()
 []()
 
