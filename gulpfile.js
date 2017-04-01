@@ -2,6 +2,7 @@
 const gulp = require('gulp'),
   connect = require('gulp-connect'),
   eslint = require('gulp-eslint'),
+  coveralls = require('gulp-coveralls'),
   browserSync = require('browser-sync').create();
 
 
@@ -10,6 +11,14 @@ gulp.task('watch', () => {
   gulp.watch('css/*.css', ['reload']);
   gulp.watch('*.html', ['reload']);
 });
+
+gulp.task('test', ['pre-test'], () => (
+  gulp.src('test/spec/*.js')
+    .on('end', () => {
+      gulp.src('coverage/lcov.info')
+        .pipe(coveralls());
+    })
+));
 
 gulp.task('serve', ['watch'], () => {
   browserSync.init({
