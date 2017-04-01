@@ -38,13 +38,13 @@ module.exports = (config) => {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress'],
 
-    coverageReporter: {
-      type: 'lcov',
-      // lcov or lcovonly are required for generating lcov.info files
-      dir: 'coverage/'
-    },
+    // coverageReporter: {
+    //   type: 'lcov',
+    //   // lcov or lcovonly are required for generating lcov.info files
+    //   dir: 'coverage/'
+    // },
 
     // web server port
     port: 9876,
