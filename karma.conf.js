@@ -34,7 +34,12 @@ module.exports = (config) => {
       'src/invertedindex.js': ['coverage']
     },
 
-
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
