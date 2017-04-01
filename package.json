@@ -4,7 +4,7 @@
   "description": "Dplex is an inverted index App to help in easy word search in a document",
   "scripts": {
     "start": "gulp",
-    "test": "node_modules/karma/bin/karma start karma.conf.js --single-run"
+    "test": "karma start karma.conf.js --single-run"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,9 @@
   "author": "Anu Onifade",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andela-aonifade/inverted-index/issues"
+    "url": "https://github.com/andela-aonifade/invertedindex/issues"
   },
-  "homepage": "https://github.com/andela-aonifade/inverted-index#readme",
+  "homepage": "https://github.com/andela-aonifade/invertedindex#readme",
   "dependencies": {
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
