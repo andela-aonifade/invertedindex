@@ -41,7 +41,7 @@ module.exports = (config) => {
     reporters: ['progress', 'coverage'],
 
     coverageReporter: {
-      type: 'lcov', 
+      type: 'lcov',
       // lcov or lcovonly are required for generating lcov.info files
       dir: 'coverage/'
     },
@@ -79,12 +79,5 @@ module.exports = (config) => {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
-
-    customLaunchers: {  
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    }
   });
 };
