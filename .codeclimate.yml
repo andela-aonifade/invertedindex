@@ -42,10 +42,10 @@ exclude_paths:
 - "node_modules/*"
 - "index.html"
 - "specs/*"
-- .travis.yml
-- .eslintrc
-- .babelrc
-- .env
+- ".travis.yml"
+- ".eslintrc"
+- ".babelrc"
+- ".env"
 - "test.js"
 - "testclass.js"
 - "gulpfile.js"
