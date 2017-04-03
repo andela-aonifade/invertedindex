@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/andela-aonifade/invertedindex/badge.svg)](https://coveralls.io/github/andela-aonifade/invertedindex)
+[![Coverage Status](https://coveralls.io/repos/github/andela-aonifade/invertedindex/badge.svg?branch=development)](https://coveralls.io/github/andela-aonifade/invertedindex?branch=development)
 [![Code Climate](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/gpa.svg)](https://codeclimate.com/github/andela-aonifade/invertedindex)
 [![Test Coverage](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/coverage.svg)](https://codeclimate.com/github/andela-aonifade/invertedindex)
 
