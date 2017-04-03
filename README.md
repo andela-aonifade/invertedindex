@@ -1,5 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/andela-aonifade/invertedindex/badge.svg)](https://coveralls.io/github/andela-aonifade/invertedindex/)
-[![Code Climate](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/gpa.svg)](https://codeclimate.com/github/andela-aonifade/invertedindex/tree/development)
+[![Code Climate](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/gpa.svg)](https://codeclimate.com/github/andela-aonifade/invertedindex/)
 [![Test Coverage](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/coverage.svg)](https://codeclimate.com/github/andela-aonifade/invertedindex/)
 
 # DPlex - Inverted Index
