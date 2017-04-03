@@ -1,51 +1,36 @@
 engines:
-  duplications:
-    enabled: false
+  duplication:
+    enabled: true
     config:
       languages:
-        #mass_threshold: 30
-        - javascript
+      - javascript
   eslint:
     enabled: true
-    # ... CONFIG CONTENT ...
-    checks:
-      comma-dangle:
-        enabled: false
-      import/no-unresolved:
-        enabled: false
-      no-console:
-        enabled: false
-      strict:
-        enabled: false
-      no-unused-vars:
-        enabled: false
-      no-undef:
-        enabled: false
-      class-methods-use-this:
-        enabled: false
-      no-param-reassign:
-        enabled: false
-      array-callback-return:
-        enabled: false
+    channel: "eslint-3"
+  checks:
+    no-undef:
+      enabled: false
+    Identical code:
+      enabled: false
   fixme:
     enabled: true
 ratings:
   paths:
-    - "public/builds/*"
+    - "src/module.js"
+    - "src/app.js"
+    - "src/invertedindex.js"
+    - "spec/dplex-test-spec.js"
 languages:
   JavaScript: true
 exclude_paths:
-- "samples/*"
-- "js/*"
-- "src/app.js"
-- "css/*"
-- "node_modules/*"
-- "index.html"
-- "specs/*"
-- ".travis.yml"
-- ".eslintrc"
-- ".babelrc"
-- ".env"
-- "test.js"
-- "testclass.js"
-- "gulpfile.js"
+- "css/bootstrap.css"
+- "animate.css"
+- "style.css"
+- "src/images"
+- .gitignore
+- .eslintignore
+- .travis.yml
+- .eslintrc.json
+- "spec/"
+- "build/bundle.js"
+- "server.js"
