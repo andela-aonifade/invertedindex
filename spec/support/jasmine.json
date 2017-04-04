@@ -1,8 +1,8 @@
 {
   "spec_dir": "spec",
   "spec_files": [
-    "../src/inverted-index.js",
-    "inverted-index-test-spec.js"
+    "../src/invertedindex.js",
+    "dplex-test-spec.js"
   ],
   "helpers": [
     "helpers/**/*.js"
