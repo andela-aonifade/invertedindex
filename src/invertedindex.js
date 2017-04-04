@@ -1,5 +1,4 @@
 
-
 const hasProperty = Object.prototype.hasOwnProperty;
 let instance = null;
 
@@ -150,8 +149,8 @@ class InvertedIndex {
   /**
    * searchIndex searches the indexed words to determine the
    * documents that the searchterms can be found
-   * @param searchTerm {string, array} the search query
-   * @param filename {string}- the name of the file to search its index
+   * @param {string, array} searchTerm - the search query
+   * @param {string} filename - the name of the file to search its index
    * @return {object|boolean} it returns boolean if the searchTerm is empty and
    * it returns object if it is not. Each index is each searcykeyword.
    * Each with an array value of the document index

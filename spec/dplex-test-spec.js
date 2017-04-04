@@ -12,7 +12,14 @@ const books = require('../samples/books.json');
 
 
 describe('InvertedIndex class', () => {
-  invertedIndex = new InvertedIndex();
+  beforeEach(() => {
+    this.indexInstance = new InvertedIndex();
+    this.validBook = validBook;
+    this.wrongFormat = wrongFormat;
+    this.emptyFile = emptyFile;
+    this.badFile = badFile;
+    this.books = books;
+  });
   describe('InvertedIndex class', () => {
     it('should check that the class has a createIndex method', () => {
       expect(typeof this.invertedIndex.createIndex).toBe('function');
