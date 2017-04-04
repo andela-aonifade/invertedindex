@@ -1,115 +1,150 @@
-'use strict';
 
-describe('Inverted Index class', () => {
+//  book with valid contents
+//const validBook = require('../samples/motivations.json');
+//  book with invalid content
+//const wrongFormat = require('../samples/wrongformat.json');
+//  empty book
+//const emptyFile = require('../samples/empty.json');
+// empty book
+// const badFile = require('../samples/badfile.json');
+// // book with few words
+// const books = require('../samples/books.json');
+
+
+describe('InvertedIndex class', () => {
   beforeEach(() => {
     this.indexInstance = new InvertedIndex();
-    this.valid = '[{"title": "The hill","text": "Some may trust in"},\
-    {"title": "Travis","text": "The travis in CI is not in."}]';
-    this.invalid = '[{"text": "Some may trust in"},{"title": "Travis"}]';
+    // this.validBook = validBook;
+    // this.wrongFormat = wrongFormat;
+    // this.emptyFile = emptyFile;
+    // this.badFile = badFile;
+    // this.books = books;
+  });
+  describe('InvertedIndex class', () => {
+    it('should check that the class has a createIndex method', () => {
+      expect(typeof this.indexInstance.createIndex).toBe('function');
+    });
+
+    it('should check that the class has a readFile method', () => {
+      expect(typeof this.indexInstance.readFile).toBe('function');
+    });
+
+    it('should check that the class has a validateFile method', () => {
+      expect(typeof this.indexInstance.validateFile).toBe('function');
+    });
+
+    it('should check that the class has a tokenize method', () => {
+      expect(typeof this.indexInstance.tokenize).toBe('function');
+    });
+
+    it('should check that the class has a prepareJsonData method', () => {
+      expect(typeof this.indexInstance.prepareJsonData).toBe('function');
+    });
+
+    it('should check that the class has a getDocumentTokens method', () => {
+      expect(typeof this.indexInstance.getDocumentTokens).toBe('function');
+    });
+
+    it('should check that the class has a getIndex method', () => {
+      expect(typeof this.indexInstance.concatenateText).toBe('function');
+    });
+
+    it('should check that the class has a searchIndex method', () => {
+      expect(typeof this.indexInstance.searchIndex).toBe('function');
+    });
   });
 
-  describe('Read book data', () => {
-
-    it('should return false if an invalid JSON array was read', () => {
-      let indexed = this.indexInstance.createIndex('invalid json as a string',
-        'invalid.json');
-      expect(indexed).toBeFalsy();
+  it('should check that the contents of the uploaded file is valid',
+    () => {
+      expect(this.indexInstance.validateFile(validBook)).toBeTruthy();
     });
 
-    it('should return false if an empty json was read', () => {
-      let indexed = this.indexInstance.createIndex([], 'invalid.json');
-      expect(indexed).toBeFalsy();
+  it('should return false for empty json files', () => {
+    expect(this.indexInstance.validateFile(emptyFile)).toBeFalsy();
+  });
+
+  it('should return true for uploaded files with property "title" and "text" ',
+  () => {
+    expect(this.indexInstance.validateFile(validBook)).toBeTruthy();
+  });
+
+  it('should return false for files without "title" and "text" properties',
+     () => {
+       expect(this.indexInstance.validateFile(wrongFormat)).toBeFalsy();
+     });
+
+  it('should return false if file is not an array of JSON object',
+     () => {
+       expect(this.indexInstance.validateFile(wrongFormat)).toBeFalsy();
+     });
+
+  it('should return false if file contains an empty array',
+     () => {
+       expect(this.indexInstance.validateFile(badFile)).toBeFalsy();
+     });
+
+  describe('Create Index', () => {
+    it('should return mapped indices to words in a JSON file', () => {
+      const expectedResult =
+        { 'smallValidBook.json':
+        { a: [0],
+          alice: [0],
+          falls: [0],
+          hole: [0],
+          in: [0],
+          into: [0],
+          rabbit: [0],
+          wonderland: [0],
+          alliance: [1, 2],
+          an: [1, 2],
+          lord: [1, 2],
+          man: [1, 2],
+          of: [1, 2],
+          rings: [1, 2],
+          the: [1, 2],
+          unusual: [1, 2] } };
+      expect(this.indexInstance.createIndex(books, 'smallValidBook.json')).toEqual(expectedResult);
+    });
+  });
+  describe('Tokenize words', () => {
+    it('should strip out special characters from excerpt in documents', () => {
+      let excerpt = 'Alice loves her ima&&gination';
+      const expectedTokens = 'Alice loves her imagination';
+      excerpt = this.indexInstance.tokenizeWords(excerpt);
+      expect(expectedTokens).toEqual(excerpt);
     });
   });
 
-  describe('Populate Index', () => {
-    it('should create index once the json file has been read', () => {
-      this.indexInstance.createIndex(this.valid, 'valid.json');
-      expect(this.indexInstance.getIndex('valid.json')).toBeDefined();
-    });
 
-    it('should return the right index value if a valid json is passed',
-      () => {
-        this.indexInstance.createIndex(this.valid, 'valid.json');
-        let indexed = this.indexInstance.getIndex('valid.json');
-        let answer = {
-          some: [0],
-          the: [0, 1],
-          hill: [0],
-          may: [0],
-          in: [0, 1],
-          travis: [1],
-          ci: [1],
-          is: [1],
-          not: [1],
-          trust: [0]
-        };
-        expect(indexed).toEqual(answer);
+  describe('Get Index', () => {
+    it('should verify that index has been created', () => {
+      expect(Object.keys(this.indexInstance.getIndex('smallValidBook.json')).length)
+        .toBeGreaterThan(0);
     });
-
-    it('should return false if some docs don\'t have title or text',
-      () => {
-        let indexed = this.indexInstance.createIndex(this.invalid, 'invalid.json');
-        expect(indexed).toBeFalsy();
-      });
   });
-
   describe('Search index', () => {
-
-    it('should return an array of object(s) with each word as keys and the \
-      value is an array of the document index', () => {
-        let book = '[{"title": "The hill","text": "Some may trust in"},\
-        {"title": "Travis", "text": "The travis in CI is not in"}]';
-
-        this.indexInstance.createIndex(book, 'book.json');
-        let result = this.indexInstance.searchIndex('in Travis', 'book.json');
-        let expectedResult = [
-          {
-            indexes: {in:[0,1], travis:[1]},
-            searchedFile: 'book.json',
-            documents: [0, 1]
-          }
-        ];
-        expect(result).toEqual(expectedResult);
+    it('should return true if search term is a string', () => {
+      const term = 'Wonderland of rings';
+      expect(Object.keys(this.indexInstance.searchIndex(term, 'smallValidBook.json')))
+      .toBeTruthy();
     });
+  });
 
-    it('should return an array of search result for each file if the \
-      file searched is all', () => {
-        let book1 = '[{"title": "The hill","text": "Some may trust in"},\
-        {"title": "Travis", "text": "The travis in CI is not in"}]';
-
-        let book2 = '[{"title": "The hill","text": "Some may trust in"},\
-        {"title": "Travis", "text": "The travis in CI is not in"}]';
-
-        this.indexInstance.createIndex(book1, 'book1.json');
-        this.indexInstance.createIndex(book2, 'book2.json');
-        let expectedResult = [
-          {
-            documents: [0, 1],
-            indexes: {
-              the: [0,1]
-            },
-            searchedFile: 'book1.json'
-          },
-          {
-            documents: [0, 1],
-            indexes: {
-              the: [0,1]
-            },
-            searchedFile: 'book2.json'
-          }
-        ];
-        let result = this.indexInstance.searchIndex('the', 'all');
-        expect(result).toEqual(expectedResult);
-      });
-
-    it('should return false if an empty string is passed as search query',
-      () => {
-        let book = '[{"title": "The hill", "text": "Some may trust in"},\
-        {"title": "Travis", "text": "The travis in CI is not in"}]';
-        this.indexInstance.createIndex(book, 'book.json');
-        let result = this.indexInstance.searchIndex('   ');
-        expect(result).toBeFalsy();
-    });
+  it('should search through single files that are indexed', () => {
+    const requiredOutput = {
+      'smallValidBook.json':
+      {
+        alice: [0],
+        and: [],
+        her: [],
+        imagination: [],
+        unusual: [1, 2]
+      }
+    };
+    let searchTerm = {};
+    searchTerm = this.indexInstance.searchIndex('Alice, and her unusual imagination',
+      'smallValidBook.json');
+    expect(Object.keys(searchTerm)).toEqual(Object.keys(requiredOutput['smallValidBook.json']));
+    expect(searchTerm).toEqual(requiredOutput['smallValidBook.json']);
   });
 });
