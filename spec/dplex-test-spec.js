@@ -1,35 +1,35 @@
 'use strict';
 
-describe('Inverted Index class', function() {
-  beforeEach(function() {
+describe('Inverted Index class', () => {
+  beforeEach(() => {
     this.indexInstance = new InvertedIndex();
     this.valid = '[{"title": "The hill","text": "Some may trust in"},\
     {"title": "Travis","text": "The travis in CI is not in."}]';
     this.invalid = '[{"text": "Some may trust in"},{"title": "Travis"}]';
   });
 
-  describe('Read book data', function() {
+  describe('Read book data', () => {
 
-    it('should return false if an invalid JSON array was read', function() {
+    it('should return false if an invalid JSON array was read', () => {
       let indexed = this.indexInstance.createIndex('invalid json as a string',
         'invalid.json');
       expect(indexed).toBeFalsy();
     });
 
-    it('should return false if an empty json was read', function() {
+    it('should return false if an empty json was read', () => {
       let indexed = this.indexInstance.createIndex([], 'invalid.json');
       expect(indexed).toBeFalsy();
     });
   });
 
-  describe('Populate Index', function() {
-    it('should create index once the json file has been read', function() {
+  describe('Populate Index', () => {
+    it('should create index once the json file has been read', () => {
       this.indexInstance.createIndex(this.valid, 'valid.json');
       expect(this.indexInstance.getIndex('valid.json')).toBeDefined();
     });
 
     it('should return the right index value if a valid json is passed',
-      function () {
+      () => {
         this.indexInstance.createIndex(this.valid, 'valid.json');
         let indexed = this.indexInstance.getIndex('valid.json');
         let answer = {
@@ -48,16 +48,16 @@ describe('Inverted Index class', function() {
     });
 
     it('should return false if some docs don\'t have title or text',
-      function() {
+      () => {
         let indexed = this.indexInstance.createIndex(this.invalid, 'invalid.json');
         expect(indexed).toBeFalsy();
       });
   });
 
-  describe('Search index', function() {
+  describe('Search index', () => {
 
     it('should return an array of object(s) with each word as keys and the \
-      value is an array of the document index', function() {
+      value is an array of the document index', () => {
         let book = '[{"title": "The hill","text": "Some may trust in"},\
         {"title": "Travis", "text": "The travis in CI is not in"}]';
 
@@ -74,7 +74,7 @@ describe('Inverted Index class', function() {
     });
 
     it('should return an array of search result for each file if the \
-      file searched is all', function() {
+      file searched is all', () => {
         let book1 = '[{"title": "The hill","text": "Some may trust in"},\
         {"title": "Travis", "text": "The travis in CI is not in"}]';
 
@@ -104,7 +104,7 @@ describe('Inverted Index class', function() {
       });
 
     it('should return false if an empty string is passed as search query',
-      function() {
+      () => {
         let book = '[{"title": "The hill", "text": "Some may trust in"},\
         {"title": "Travis", "text": "The travis in CI is not in"}]';
         this.indexInstance.createIndex(book, 'book.json');
