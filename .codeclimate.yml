@@ -23,14 +23,14 @@ ratings:
 languages:
   JavaScript: true
 exclude_paths:
-- "css/bootstrap.css"
-- "animate.css"
-- "style.css"
-- "src/images"
+- css/bootstrap.css
+- animate.css
+- style.css
+- src/images
 - .gitignore
 - .eslintignore
 - .travis.yml
 - .eslintrc.json
-- "spec/"
-- "build/bundle.js"
-- "server.js"
+- spec/**/*
+- build/bundle.js
+- server.js
