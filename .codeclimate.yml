@@ -16,21 +16,15 @@ engines:
     enabled: true
 ratings:
   paths:
-    - "src/module.js"
-    - "src/app.js"
     - "src/invertedindex.js"
     - "spec/dplex-test-spec.js"
 languages:
   JavaScript: true
 exclude_paths:
-- css/bootstrap.css
-- animate.css
-- style.css
-- src/images
+- css/
 - .gitignore
 - .eslintignore
 - .travis.yml
 - .eslintrc.json
 - spec/**/*
-- build/bundle.js
-- server.js
+- src/
