@@ -14,11 +14,12 @@ dPlexApp.controller('dPlexController', ['$scope', 'toastr', ($scope, toastr) => 
     // console.log($scope.uploadedFiles);
     const fileChoice = $scope.uploadSelected;
     if (!fileChoice) {
-      toastr.info('Select a file to get index');
+      toastr.info('Select a file to index');
       return false;
     }
     // If index was created for that file
-    if (invIndex.createIndex($scope.uploadedFiles[fileChoice].text, fileChoice)) {
+    if (invIndex.createIndex($scope
+      .uploadedFiles[fileChoice].text, fileChoice)) {
       // Gets the indexed words
       const indexes = invIndex.getIndex(fileChoice);
       $scope.indexDisplay = true;
@@ -41,7 +42,7 @@ dPlexApp.controller('dPlexController', ['$scope', 'toastr', ($scope, toastr) => 
     } else {
       // The file was not indexed because it is invalid;
       delete $scope.uploadedFiles[fileChoice];
-      toastr.error('Your json file is invalid, make sure each element has title and text property');
+      toastr.error(invIndex.error.message);
     }
   };
 
