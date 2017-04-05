@@ -1,12 +1,11 @@
 engines:
-  duplication:
+  duplications:
     enabled: false
     config:
       languages:
         - javascript
   eslint:
     enabled: true
-    channel: "eslint-3"
   checks:
     comma-dangle:
       enabled: false
@@ -14,15 +13,18 @@ engines:
     enabled: true
 ratings:
   paths:
+    - "src/app.js"
     - "src/invertedindex.js"
     - "spec/dplex-test-spec.js"
 languages:
   JavaScript: true
 exclude_paths:
-- css/
+- "css/"
 - .gitignore
 - .eslintignore
 - .travis.yml
-- .eslintrc.json
-- spec/**/*
-- src/
+- .eslintrc
+- "spec/lib"
+- "spec/support"
+- "spec/SpecRunner.html"
+- "src/"
