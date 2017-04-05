@@ -1,6 +1,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/andela-aonifade/invertedindex/badge.svg?branch=development)](https://coveralls.io/github/andela-aonifade/invertedindex?branch=development)
 [![Code Climate](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/gpa.svg)](https://codeclimate.com/github/andela-aonifade/invertedindex)
-[![Test Coverage](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/coverage.png)](https://codeclimate.com/github/andela-aonifade/invertedindex)
+[![Build Status](https://travis-ci.org/andela-aonifade/invertedindex.svg?branch=master)](https://travis-ci.org/andela-aonifade/invertedindex)
 
 # DPlex - Inverted Index
 Inverted Index is concept used to do a reverse search.
