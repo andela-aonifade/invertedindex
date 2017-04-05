@@ -1,24 +1,9 @@
 
-//  book with valid contents
-// const validBook = require('../samples/motivations.json');
-//  book with invalid content
-// const wrongFormat = require('../samples/wrongformat.json');
-//  empty book
-// const emptyFile = require('../samples/empty.json');
-// empty book
-// const badFile = require('../samples/badfile.json');
-// // book with few words
-// const books = require('../samples/books.json');
-
-
 describe('InvertedIndex class', () => {
   beforeEach(() => {
     this.indexInstance = new InvertedIndex();
     this.validBook = [{ title: 'Welcome to Test Environment',
       text: 'Enjoy this file' }];
-    // this.wrongFormat = wrongFormat;
-    this.emptyFile = {};
-    // this.badFile = badFile;
     this.books = [
       {
         title: 'Alice in Wonderland',
