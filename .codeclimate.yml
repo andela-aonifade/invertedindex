@@ -1,11 +1,12 @@
 engines:
-  duplications:
-    enabled: false
+  duplication:
+    enabled: true
     config:
       languages:
-        - javascript
+      - javascript
   eslint:
     enabled: true
+    channel: "eslint-3"
   checks:
     comma-dangle:
       enabled: false
