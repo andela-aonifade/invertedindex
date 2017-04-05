@@ -1,0 +1,16 @@
+{
+  "name": "invertedindex",
+  "description": "Heroku generated json file",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
