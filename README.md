@@ -1,6 +1,6 @@
-[![Coverage Status](https://coveralls.io/repos/github/andela-aonifade/invertedindex/badge.svg?branch=development)](https://coveralls.io/github/andela-aonifade/invertedindex?branch=development)
-[![Code Climate](https://codeclimate.com/github/andela-aonifade/invertedindex/badges/gpa.svg)](https://codeclimate.com/github/andela-aonifade/invertedindex)
-[![Build Status](https://travis-ci.org/andela-aonifade/invertedindex.svg?branch=master)](https://travis-ci.org/andela-aonifade/invertedindex)
+[![Coverage Status](https://coveralls.io/repos/github/andela-aonifade/invertedindex/badge.svg?branch=master)](https://coveralls.io/github/andela-aonifade/invertedindex?branch=master)
+[![Code Climate](https://codeclimate.com/github/andela-aonifade/dplex/badges/gpa.svg)](https://codeclimate.com/github/andela-aonifade/dplex)
+[![Build Status](https://travis-ci.org/andela-aonifade/dplex.svg?branch=development)](https://travis-ci.org/andela-aonifade/dplex?branch=development)
 
 # DPlex - Inverted Index
 Inverted Index is concept used to do a reverse search.
@@ -19,7 +19,7 @@ Inverted Index is concept used to do a reverse search.
 - Searching of each indexed files and all indexed files
 
 ## How to use
-The application can be accessed on heroku via [https://dplex.herokuapp.com](https://dplex.herokuapp.com).
+The application can be accessed on heroku via [https://dplex-staging.herokuapp.com](https://dplex-staging.herokuapp.com).
 It can also be used locally by following the steps below
 
 1.  Clone the repository `git clone https://github.com/andela-aonifade/invertedindex.git`

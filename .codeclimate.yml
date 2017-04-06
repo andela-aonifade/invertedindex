@@ -1,6 +1,6 @@
 engines:
   duplication:
-    enabled: true
+    enabled: false
     config:
       languages:
       - javascript
@@ -17,8 +17,6 @@ ratings:
     - "src/app.js"
     - "src/invertedindex.js"
     - "spec/dplex-test-spec.js"
-languages:
-  JavaScript: true
 exclude_paths:
 - "css/"
 - .gitignore
@@ -29,3 +27,4 @@ exclude_paths:
 - "spec/support"
 - "spec/SpecRunner.html"
 - "src/"
+- "images/"
