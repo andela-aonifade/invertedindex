@@ -17,8 +17,6 @@ ratings:
     - "src/app.js"
     - "src/invertedindex.js"
     - "spec/dplex-test-spec.js"
-languages:
-  JavaScript: true
 exclude_paths:
 - "css/"
 - .gitignore
