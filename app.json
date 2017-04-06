@@ -1,0 +1,16 @@
+{
+  "name": "dplex - Inverted Index For All",
+  "description": "Heroku generated json file",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
